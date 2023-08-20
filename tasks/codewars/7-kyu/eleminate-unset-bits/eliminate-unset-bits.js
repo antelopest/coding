@@ -16,6 +16,9 @@ const eliminateUnsetBits = str => {
     return convertStringFromBinaryToDecimal(validStr(removesZeroInString(str)));
 };
 
+/*
+Function assert
+*/
 const assert = (resultValue, correctValue) => {
     if (resultValue === correctValue) {
         console.log(`Тест пройден: ${resultValue} === ${correctValue}`);
@@ -28,7 +31,6 @@ const assert = (resultValue, correctValue) => {
 /*
 Test values
 */
-
 const tests = [
     ['11010101010101', 255],
     ['111', 7],
