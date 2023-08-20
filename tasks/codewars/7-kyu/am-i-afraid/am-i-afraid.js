@@ -74,6 +74,7 @@ tests.forEach(e => assert(AmIAfraid(e[0][0], e[0][1]), e[1]));
 Best practice (votes win)
 */
 var bestPracticeAmIAfraid = function(day, num) {
+
     var preds = {"Sunday":    d => d == 666 || d == -666,
         "Monday":    d => d == 12,
         "Tuesday":   d => d > 95,
@@ -81,5 +82,7 @@ var bestPracticeAmIAfraid = function(day, num) {
         "Thursday":  d => d === 0,
         "Friday":    d => d % 2 === 0,
         "Saturday":  d => d == 56};
+
     return preds[day](num);
+
 }
