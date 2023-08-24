@@ -11,40 +11,51 @@ Return the minimum number of days during which the log is written.
  ["12:12:12"] ==> 1
  ["12:00:00", "23:59:59", "00:00:00"] ==> 2
 */
-const checkLogs = logs => {
-    const days = logs.length === 0 ? 0 : logs.reduce((result, log, index) => {
-
-        let seconds = 0;
-
-        log.split(':').forEach((element, index) => {
-            const numberElement = Number(element);
-
-            if (index === 0 && numberElement > 0) {
-                seconds += numberElement * 60 * 60;
-            }
-
-            if (index === 1 && numberElement > 0) {
-                seconds += numberElement * 60;
-            }
-
-            if (index === 2 && numberElement > 0) {
-                seconds += numberElement;
-            }
-        });
-
-        if (result.lastLog !== null) {
-            if (result.lastLog >= seconds) {
-                result.days += 1;
-            }
-        }
-
-        result.lastLog = seconds;
-
-        return result;
-    }, { days: 1, lastLog: null }).days;
-
+function checkLogs(log) {
+    let prev = "99:99:99";
+    let days = 0;
+    log.forEach(t => {
+        if (t <= prev) days++;
+        prev = t;
+    });
     return days;
 }
+
+
+// const checkLogs = logs => {
+//     const days = logs.length === 0 ? 0 : logs.reduce((result, log, index) => {
+//
+//         let seconds = 0;
+//
+//         log.split(':').forEach((element, index) => {
+//             const numberElement = Number(element);
+//
+//             if (index === 0 && numberElement > 0) {
+//                 seconds += numberElement * 60 * 60;
+//             }
+//
+//             if (index === 1 && numberElement > 0) {
+//                 seconds += numberElement * 60;
+//             }
+//
+//             if (index === 2 && numberElement > 0) {
+//                 seconds += numberElement;
+//             }
+//         });
+//
+//         if (result.lastLog !== null) {
+//             if (result.lastLog >= seconds) {
+//                 result.days += 1;
+//             }
+//         }
+//
+//         result.lastLog = seconds;
+//
+//         return result;
+//     }, { days: 1, lastLog: null }).days;
+//
+//     return days;
+// }
 
 console.log(checkLogs(["00:00:00", "00:01:11", "02:15:59", "23:59:58", "23:59:59"]));
 console.log(checkLogs(["00:00:00", "00:01:11", "02:15:59", "23:59:58", "23:59:59", "00:01:11"]));
