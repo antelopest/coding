@@ -7,3 +7,5 @@ with size 12 should return : '101010101010'.
 The size will always be positive and will only use whole numbers.
 * */
 const stringy = size => Array(size).fill(0).map((e, i) => i%2 === 0 ? 1 : 0).join('');
+
+console.log(stringy(6));
