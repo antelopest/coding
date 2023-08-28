@@ -20,5 +20,5 @@ Examples
 //     return counter.rightCount === counter.leftCount;
 // }
 
-console.log(validParentheses("()"));
-console.log(validParentheses(")("));
+// console.log(validParentheses("()"));
+// console.log(validParentheses(")("));
