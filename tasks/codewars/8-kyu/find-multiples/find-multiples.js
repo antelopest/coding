@@ -16,9 +16,7 @@ arr // [0,0,0,0,0]
 
 const findMultiples = (integer, limit) => {
     let maxIndex = (limit - limit % integer) / integer;
-
-    return Array(maxIndex).fill(0).map((e, i) => integer * (i + 1));;
+    return Array(maxIndex).fill(0).map((e, i) => integer * (i + 1));
 }
-
 
 findMultiples(5, 25);
