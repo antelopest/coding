@@ -9,27 +9,29 @@ function anagramDifference(word1, word2){
     const arrWord1 = word1.split('');
     const arrWord2 = word2.split('');
 
-    const arr = new Array(arrWord1);
+    const arr = new Array(...arrWord1);
 
     console.log('arr:', arr);
 
     arr.forEach(
         (e, i) => {
-            let index = arrWord2.indexOf(e);
+            let indexWord2 = arrWord2.indexOf(e);
 
-            if (index !== -1) {
-                arrWord1.splice(i, 1);
-                arrWord2.splice(index, 1);
+            if (indexWord2 !== -1) {
+                arrWord2.splice(indexWord2, 1);
+
+                let indexWord1 = arrWord1.indexOf(e);
+
+                if (indexWord1 !== -1) {
+                    arrWord1.splice(indexWord1, 1);
+                }
             }
         }
     );
-
-    console.log(arrWord1);
-    console.log(arrWord2);
 
     return arrWord1.length + arrWord2.length;
 }
 
 
 console.log(anagramDifference("codewars", "hackerrank"));
-// console.log(anagramDifference("rffhmkhvtuckgdlanudcqeugdboqsjftossfbwatekpfxqjau", "saubgpewfrjljgyxotjvmmujkfkqecqqwusoxktbixukqpkhzkscsrjbbhdbxxwgjlpzvvfhzseqpfrfypiyukyqfieimrvrxrt"));
+console.log(anagramDifference("rffhmkhvtuckgdlanudcqeugdboqsjftossfbwatekpfxqjau", "saubgpewfrjljgyxotjvmmujkfkqecqqwusoxktbixukqpkhzkscsrjbbhdbxxwgjlpzvvfhzseqpfrfypiyukyqfieimrvrxrt"));
