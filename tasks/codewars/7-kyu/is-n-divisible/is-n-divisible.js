@@ -19,7 +19,7 @@ Example:
 /*
 * best practices
 * */
-function isDivisible(firstN, ...otherN){
+function isDivisible(firstN, ...otherN)   {
     return otherN.every(n => firstN % n === 0);
 }
 
