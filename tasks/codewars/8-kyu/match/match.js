@@ -32,16 +32,18 @@ const match = (candidate, job) => {
     const { minSalary } = candidate;
     const { maxSalary } = job;
 
-    return (minSalary - minSalary / 100 * 10) < maxSalary;
+    if (!minSalary || !maxSalary) throw TypeError("Error");
+
+    return (minSalary * 0.9) <= maxSalary;
 }
 
 console.log(
     match(
         {
-            minSalary: 120000
+            minSalary: 110000
         },
         {
-            maxSalary: 130000
+            maxSalary: 120000
         }
     )
 );
