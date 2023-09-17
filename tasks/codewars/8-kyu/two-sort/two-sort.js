@@ -15,4 +15,3 @@ console.log(
 )
 
 const str = '';
-str.toUpperCase().toLowerCase().length !== str.length
